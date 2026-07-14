@@ -1,0 +1,57 @@
+{
+  "mappings": [
+    {
+      "name": "fixmux-0",
+      "request": {
+        "method": "GET",
+        "url": "/v1/members?page=2",
+        "headers": {
+          "Accept": {
+            "equalTo": "application/json"
+          },
+          "User-Agent": {
+            "equalTo": "demo-client/1.0"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "statusMessage": "OK",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Request-Id": "req-0001"
+        },
+        "body": "{\"members\": [{\"id\": 1, \"name\": \"aya\"}], \"total\": 1}"
+      }
+    },
+    {
+      "name": "fixmux-1",
+      "request": {
+        "method": "POST",
+        "url": "/v1/members",
+        "headers": {
+          "Content-Type": {
+            "equalTo": "application/json"
+          },
+          "Accept": {
+            "equalTo": "application/json"
+          }
+        },
+        "bodyPatterns": [
+          {
+            "equalTo": "{\"name\": \"ben\"}"
+          }
+        ]
+      },
+      "response": {
+        "status": 201,
+        "statusMessage": "Created",
+        "headers": {
+          "Content-Type": "application/json",
+          "Location": "/v1/members/2"
+        },
+        "body": "{\"id\": 2, \"name\": \"ben\"}"
+      }
+    }
+  ]
+}

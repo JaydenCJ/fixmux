@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="452" viewBox="0 0 820 452" font-family="SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" xml:space="preserve">
+  <rect width="820" height="452" rx="10" fill="#1e2127"/>
+  <rect width="820" height="30" rx="10" fill="#2c313a"/>
+  <rect y="20" width="820" height="10" fill="#2c313a"/>
+  <circle cx="20" cy="15" r="5" fill="#e06c75"/>
+  <circle cx="38" cy="15" r="5" fill="#e5c07b"/>
+  <circle cx="56" cy="15" r="5" fill="#98c379"/>
+  <text x="410" y="19" fill="#9da5b4" text-anchor="middle" font-size="12">fixmux — one capture, every stack</text>
+
+  <text x="20" y="56" fill="#98c379">$</text>
+  <text x="36" y="56" fill="#dcdfe4">fixmux detect capture.har</text>
+  <text x="20" y="76" fill="#9da5b4">capture.har    har    2 exchanges</text>
+
+  <text x="20" y="106" fill="#98c379">$</text>
+  <text x="36" y="106" fill="#dcdfe4">fixmux convert capture.har -t vcr -o cassette.yml</text>
+  <text x="20" y="126" fill="#e5c07b">fixmux: note: har: ignored HAR-only fields with no exchange equivalent: time, timings</text>
+  <text x="20" y="146" fill="#9da5b4">fixmux: har -&gt; vcr: wrote 2 exchanges to cassette.yml</text>
+
+  <text x="20" y="176" fill="#98c379">$</text>
+  <text x="36" y="176" fill="#dcdfe4">fixmux convert cassette.yml -t nock -o definitions.json</text>
+  <text x="20" y="196" fill="#9da5b4">fixmux: vcr -&gt; nock: wrote 2 exchanges to definitions.json</text>
+
+  <text x="20" y="226" fill="#98c379">$</text>
+  <text x="36" y="226" fill="#dcdfe4">fixmux convert cassette.yml -t wiremock -o stubs.json</text>
+  <text x="20" y="246" fill="#e5c07b">fixmux: note: wiremock: stub mappings carry no host; dropped origin(s) http://api.example.test</text>
+  <text x="20" y="266" fill="#9da5b4">fixmux: vcr -&gt; wiremock: wrote 2 exchanges to stubs.json</text>
+
+  <text x="20" y="296" fill="#98c379">$</text>
+  <text x="36" y="296" fill="#dcdfe4">fixmux verify cassette.yml definitions.json</text>
+  <text x="20" y="316" fill="#98c379">equivalent: 2 exchanges</text>
+
+  <text x="20" y="346" fill="#98c379">$</text>
+  <text x="36" y="346" fill="#dcdfe4">fixmux verify cassette.yml drifted.yml</text>
+  <text x="20" y="366" fill="#e06c75">exchange 1: response status differs</text>
+  <text x="20" y="384" fill="#e06c75">  left:  201</text>
+  <text x="20" y="402" fill="#e06c75">  right: 503</text>
+  <text x="20" y="422" fill="#e06c75">not equivalent: 1 difference</text>
+</svg>

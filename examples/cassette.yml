@@ -1,0 +1,51 @@
+---
+http_interactions:
+- recorded_at: Sun, 01 Mar 2026 09:30:00 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - demo-client/1.0
+    method: get
+    uri: http://api.example.test/v1/members?page=2
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"members": [{"id": 1, "name": "aya"}], "total": 1}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Request-Id:
+      - req-0001
+    status:
+      code: 200
+      message: OK
+- recorded_at: Sun, 01 Mar 2026 09:30:01 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"name": "ben"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: post
+    uri: http://api.example.test/v1/members
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"id": 2, "name": "ben"}'
+    headers:
+      Content-Type:
+      - application/json
+      Location:
+      - /v1/members/2
+    status:
+      code: 201
+      message: Created
+recorded_with: WebInspector 537.36
